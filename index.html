@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>みんなですごろく</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎲 みんなですごろく 🎲</h1>
+  <p>2人で遊べるすごろくゲーム</p>
+
+  <div class="game">
+    <div id="board">
+      <img
+        id="board-image"
+        src="https://i.postimg.cc/4Z8DG1V2/karafurusugorokuno-mao-xianmappu.png"
+        alt="すごろくの盤面"
+      >
+      <div id="piece1" class="piece">🔴</div>
+      <div id="piece2" class="piece">🔵</div>
+    </div>
+
+    <p id="turn">プレイヤー1の番です</p>
+    <button id="roll">🎲 サイコロを振る</button>
+    <p id="result">ボタンを押してゲーム開始！</p>
+    <p id="positions">🔴 プレイヤー1：スタート<br>🔵 プレイヤー2：スタート</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
