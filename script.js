@@ -112,3 +112,22 @@ async function askDify(question) {
     console.error(error);
   }
 }
+// 質問ボタンとDifyを接続する
+const askButton = document.getElementById("ask-dify");
+const questionInput = document.getElementById("dify-question");
+const answerText = document.getElementById("dify-answer");
+
+askButton.addEventListener("click", async function () {
+  const question = questionInput.value.trim();
+
+  if (question === "") {
+    answerText.textContent = "質問を入力してください。";
+    return;
+  }
+
+  answerText.textContent = "🤖 Difyに質問しています...";
+
+  await askDify(question);
+
+  answerText.textContent = resultText.textContent;
+});
