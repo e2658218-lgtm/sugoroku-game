@@ -88,12 +88,16 @@ async function askDify(question) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          query:
-            "あなたは2人用すごろくのアシスタントです。\n" +
-            "プレイヤー1の位置：" + positions[0] + "マス\n" +
-            "プレイヤー2の位置：" + positions[1] + "マス\n" +
-            "現在のプレイヤー：" + (currentPlayer + 1) + "\n" +
-            "質問：" + question
+         query:
+  "あなたは2人用すごろくのアシスタントです。\n" +
+  "プレイヤー1の位置：" + positions[0] + "マス\n" +
+  "プレイヤー2の位置：" + positions[1] + "マス\n" +
+  "現在のプレイヤー：" + (currentPlayer + 1) + "\n" +
+  "質問：" + question + "\n\n" +
+  "回答ルール：質問に直接答えてください。" +
+  "日本語で簡潔に回答してください。" +
+  "URL、画像リンク、Markdownリンクは絶対に出力しないでください。" +
+  "盤面の説明やURLを回答に含めないでください。"
         })
       }
     );
