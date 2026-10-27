@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,43 +12,51 @@
   <p>2人で遊べるすごろくゲーム</p>
 
   <div class="game">
-    <div id="board">
-      <img
-        id="board-image"
-        src="https://i.postimg.cc/4Z8DG1V2/karafurusugorokuno-mao-xianmappu.png"
-        alt="すごろくの盤面"
-      >
-      <div id="piece1" class="piece">🔴</div>
-      <div id="piece2" class="piece">🔵</div>
+    <div class="game-left">
+      <div id="board">
+        <img
+          id="board-image"
+          src="https://i.postimg.cc/4Z8DG1V2/karafurusugorokuno-mao-xianmappu.png"
+          alt="すごろくの盤面"
+        >
+        <div id="piece1" class="piece">🔴</div>
+        <div id="piece2" class="piece">🔵</div>
+      </div>
+
+      <div class="game-controls">
+        <p id="turn">プレイヤー1の番です</p>
+        <button id="roll">🎲 サイコロを振る</button>
+        <p id="result">ボタンを押してゲーム開始！</p>
+        <p id="positions">
+          🔴 プレイヤー1：スタート<br>
+          🔵 プレイヤー2：スタート
+        </p>
+      </div>
     </div>
 
-    <p id="turn">プレイヤー1の番です</p>
-    <button id="roll">🎲 サイコロを振る</button>
-    <p id="result">ボタンを押してゲーム開始！</p>
-    <p id="positions">🔴 プレイヤー1：スタート<br>🔵 プレイヤー2：スタート</p>
+    <div class="dify-assistant">
+      <h2>🤖 すごろくAIアシスタント</h2>
+      <p>ゲームの状況を確認したり、AIに質問したりできます。</p>
+
+      <input
+        id="dify-question"
+        type="text"
+        placeholder="例：今のゲーム状況を教えて"
+      >
+
+      <button id="ask-dify">AIに質問する</button>
+
+      <p id="dify-answer">質問を入力してください。</p>
+
+      <a
+        href="https://udify.app/chat/UbMwquOdTtNOIg2Y"
+        target="_blank"
+        rel="noopener noreferrer">
+        Difyアシスタントを別画面で開く
+      </a>
+    </div>
   </div>
-<h2>🤖 Difyのすごろくアシスタント</h2>
-<div class="dify-assistant">
-  <h2>🤖 Difyのすごろくアシスタント</h2>
-  <p>ゲームの状況を確認したり、AIに質問したりできます。</p>
 
-  <input
-    id="dify-question"
-    type="text"
-    placeholder="例：今のゲーム状況を教えて"
-  >
-
-  <button id="ask-dify">AIに質問する</button>
-
-  <p id="dify-answer">質問を入力してください。</p>
-
-  <a
-    href="https://udify.app/chat/UbMwquOdTtNOIg2Y"
-    target="_blank"
-    rel="noopener noreferrer">
-    Difyアシスタントを別画面で開く
-  </a>
-</div>
   <script src="script.js"></script>
 </body>
 </html>
