@@ -75,9 +75,9 @@ rollButton.addEventListener("click", rollDice);
 movePiece(0);
 movePiece(1);
 updateDisplay();
-// Difyのすごろくアシスタントに質問する
+
 async function askDify(question) {
-  resultText.textContent = "🤖 Difyに相談中...";
+  answerText.textContent = "🤖 Difyに相談中...";
 
   try {
     const response = await fetch(
@@ -104,15 +104,16 @@ async function askDify(question) {
       throw new Error("通信エラー：" + response.status);
     }
 
-    resultText.textContent =
+    answerText.textContent =
       data.answer || "Difyから回答を取得できませんでした。";
+
   } catch (error) {
-    resultText.textContent =
+    answerText.textContent =
       "Difyとの接続に失敗しました。設定を確認してください。";
     console.error(error);
   }
 }
-// 質問ボタンとDifyを接続する
+
 const askButton = document.getElementById("ask-dify");
 const questionInput = document.getElementById("dify-question");
 const answerText = document.getElementById("dify-answer");
@@ -125,9 +126,11 @@ askButton.addEventListener("click", async function () {
     return;
   }
 
-  answerText.textContent = "🤖 Difyに質問しています...";
+  askButton.disabled = true;
 
-  await askDify(question);
-
-  answerText.textContent = resultText.textContent;
+  try {
+    await askDify(question);
+  } finally {
+    askButton.disabled = false;
+  }
 });
