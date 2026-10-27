@@ -75,3 +75,40 @@ rollButton.addEventListener("click", rollDice);
 movePiece(0);
 movePiece(1);
 updateDisplay();
+// Difyのすごろくアシスタントに質問する
+async function askDify(question) {
+  resultText.textContent = "🤖 Difyに相談中...";
+
+  try {
+    const response = await fetch(
+      "https://divine-unit-f335.e2658218.workers.dev",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          query:
+            "あなたは2人用すごろくのアシスタントです。\n" +
+            "プレイヤー1の位置：" + positions[0] + "マス\n" +
+            "プレイヤー2の位置：" + positions[1] + "マス\n" +
+            "現在のプレイヤー：" + (currentPlayer + 1) + "\n" +
+            "質問：" + question
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error("通信エラー：" + response.status);
+    }
+
+    resultText.textContent =
+      data.answer || "Difyから回答を取得できませんでした。";
+  } catch (error) {
+    resultText.textContent =
+      "Difyとの接続に失敗しました。設定を確認してください。";
+    console.error(error);
+  }
+}
