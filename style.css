@@ -71,3 +71,69 @@ h1 {
     padding: 10px;
   }
 }
+/* 画面全体をコンパクトにする */
+body {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* 見出しと説明文の余白を縮める */
+h1 {
+  margin: 5px 0;
+  font-size: 1.6rem;
+}
+
+body > p {
+  margin: 5px 0 10px;
+}
+
+/* ゲーム部分の幅を制限する */
+.game {
+  margin: 0 auto;
+  max-width: 850px;
+}
+
+/* 盤面画像を画面内に収める */
+#board {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#board-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Dify欄をコンパクトにする */
+.dify-assistant {
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.dify-assistant h2 {
+  margin: 4px 0;
+  font-size: 1.2rem;
+}
+
+.dify-assistant p {
+  margin: 6px 0;
+}
+
+#dify-question {
+  width: 60%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+#dify-answer {
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
