@@ -137,3 +137,70 @@ body > p {
   overflow-y: auto;
   overflow-wrap: anywhere;
 }
+/* ゲーム全体を横並びにする */
+.game {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* 盤面は左側に収める */
+#board {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+#board-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* AIアシスタントを右側に置く */
+.dify-assistant {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* ゲーム操作をコンパクトに */
+#turn,
+#result,
+#positions {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+#roll {
+  padding: 8px 14px;
+}
+
+/* AIの回答欄 */
+#dify-answer {
+  max-height: 120px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+
+/* 小さい画面では縦並びに戻す */
+@media (max-width: 700px) {
+  .game {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dify-assistant {
+    width: 100%;
+  }
+}
